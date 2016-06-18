@@ -1,0 +1,79 @@
+@font-face {
+    font-family: sublime-font;
+    src: url(../fonts/sublime-font.ttf);
+}
+
+body{
+  margin: 0;
+}
+
+header{
+  width: 100vw;
+  height: 5vh;
+  background-color: rgb(51, 51, 51);
+}
+
+.navbar-title{
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    color: rgb(249, 240, 249);
+    font-family: futura;
+    margin-left: 2vw;
+    padding-top: 1vh;
+}
+
+main{
+  width: 95vw;
+  margin-left: 5vw;
+}
+
+.titles{
+  font-family: futura;
+  font-size: 40px;
+  padding-right: 5vw;
+  color: rgb(51, 51, 51);
+}
+
+footer{
+  width: 100vw;
+  height: 5vh;
+  background-color: rgb(51, 51, 51);
+  margin-top: 2vh;
+  position:fixed;
+  left:0px;
+  bottom:0px;  
+}
+
+.footer-credits{
+    -webkit-margin-before: 0em;
+    -webkit-margin-after: 0em;
+    color: rgb(249, 240, 249);
+    font-family: futura;
+    margin-left: 2vw;
+    padding-top: 1vh;
+}
+
+a{
+  text-decoration: none;
+}
+
+p{
+  font-family: sublime-font;
+  font-size: 13px;
+}
+
+/*.camagru-center{
+  width: 50vw;
+  height: 50vw;
+  background-color: yellow;
+  float: left;
+  margin-bottom: 20vh;
+}
+
+.camagru-right{
+  width: 30vw;
+  height: 40vw;
+  background-color: pink;
+  float: left;
+  margin-bottom: 20vh;
+}*/
