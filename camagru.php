@@ -26,7 +26,7 @@
         <button id="startbutton">Prendre une photo</button><br>
         <input type='file' name='img' size='65' id='uploadimage' /><br>
         <canvas id="canvas"></canvas>
-        <img src="http://placekitten.com/g/320/261" id="photo" alt="photo">
+        <img src="./assets/images/grue.jpg" id="photo" alt="photo">
       </div>
 
       <div class="camagru-right">
