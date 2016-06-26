@@ -1,3 +1,4 @@
+
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
  
@@ -17,7 +18,7 @@ ctx.lineWidth = 3;
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 ctx.strokeStyle = '#00CC99';
- 
+   
 canvas.addEventListener('mousedown', function(e) {
     ctx.beginPath();
     ctx.moveTo(mouse.x, mouse.y);
@@ -30,8 +31,10 @@ canvas.addEventListener('mouseup', function() {
 }, false);
  
 var onPaint = function() {
+  if (canDraw){
     ctx.lineTo(mouse.x, mouse.y);
     ctx.stroke();
     var data = canvas.toDataURL('image/png');
     photo.setAttribute('src', data);
+  }
 };

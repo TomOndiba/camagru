@@ -1,3 +1,13 @@
+var saved_rect = null;
+var canDraw = false;
+
+var drawMode = function(){
+  if (canDraw)
+    canDraw = false;
+  else
+    canDraw = true;
+};
+
 (function() {
 
   var streaming = false,
@@ -50,11 +60,14 @@
     canvas.getContext('2d').drawImage(video, 0, 0, width, height);
     var data = canvas.toDataURL('image/png');
     photo.setAttribute('src', data);
+    var ctx = document.getElementById('canvas').getContext('2d');
+    saved_rect = ctx.getImageData(0, 0, 620, 620);
   }
 
   startbutton.addEventListener('click', function(ev){
       takepicture();
     ev.preventDefault();
   }, false);
+
 
 })();

@@ -25,6 +25,7 @@
         <video id="video"></video>
         <button id="startbutton">Prendre une photo</button><br>
         <input type='file' name='img' size='65' id='uploadimage' /><br>
+        <button class="draw" onClick="drawMode()">draw</button><br>
         <canvas id="canvas"></canvas>
         <img src="./assets/images/grue.jpg" id="photo" alt="photo">
       </div>

@@ -1,8 +1,9 @@
 <?php
 
+  include_once 'config/database.php';
   session_start();
   
-  try{$bdd = new PDO('mysql:host=localhost;dbname=camagru;charset=utf8', 'root', 'root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));}
+  try{$bdd = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));}
   catch(Exception $e) { die('Erreur : ' . $e->getMessage());}
 
   function parse_input($data) {
