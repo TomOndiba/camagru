@@ -1,3 +1,5 @@
+var drawColor = '#000000';
+
 
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
@@ -10,14 +12,14 @@ canvas.height = parseInt(paint_style.getPropertyValue('height'));
 var mouse = {x: 0, y: 0};
  
 canvas.addEventListener('mousemove', function(e) {
+  ctx.lineWidth = 10;
+  ctx.lineJoin = 'round';
+  ctx.lineCap = 'round';
+  ctx.strokeStyle = drawColor;
   mouse.x = e.pageX - this.offsetLeft;
   mouse.y = e.pageY - this.offsetTop;
 }, false);
 
-ctx.lineWidth = 3;
-ctx.lineJoin = 'round';
-ctx.lineCap = 'round';
-ctx.strokeStyle = '#00CC99';
    
 canvas.addEventListener('mousedown', function(e) {
     ctx.beginPath();

@@ -1,11 +1,18 @@
 var saved_rect = null;
 var canDraw = false;
+var drawButton = document.querySelector('.draw');
 
 var drawMode = function(){
-  if (canDraw)
+  if (canDraw){
     canDraw = false;
-  else
+    drawButton.style.backgroundColor = 'grey';
+    drawButton.innerHTML = 'DRAWING OFF';
+  }
+  else{
     canDraw = true;
+    drawButton.style.backgroundColor = 'green';
+    drawButton.innerHTML = 'DRAWING ON !';    
+  }
 };
 
 (function() {

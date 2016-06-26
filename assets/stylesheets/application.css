@@ -62,6 +62,27 @@ p{
   font-size: 13px;
 }
 
+#black{
+  color: white;
+  background-color: black;
+}
+
+#white{
+  background-color: white;
+}
+
+#cyan{
+  background-color: #00ffff;
+}
+
+#yellow{
+  background-color: #FFFF00;
+}
+
+.draw{
+  background-color: grey;
+}
+
 /*.camagru-center{
   width: 50vw;
   height: 50vw;
