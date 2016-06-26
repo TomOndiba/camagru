@@ -58,15 +58,15 @@ var moove = function(img){
     }
 
     function handleMouseMove(e){
-      canMouseX=parseInt(e.clientX-offsetX);
-      canMouseY=parseInt(e.clientY-offsetY);
+      var rect = canvas.getBoundingClientRect();
+      canMouseX=parseInt(e.clientX-rect.left);
+      canMouseY=parseInt(e.clientY-rect.top);
       // if the drag flag is set, clear the canvas and draw the image
       var height = img.clientHeight;
       var width = img.clientWidth;
       if(isDragging && !canDraw){
           ctx.clearRect(0,0,canvasWidth,canvasHeight);
           ctx.putImageData(saved_rect, 0, 0);
-          // ctx.drawImage(img,canMouseX-128/2,canMouseY-120/2,128,120);
           ctx.drawImage(img,canMouseX,canMouseY);
       }
     }
