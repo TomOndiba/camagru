@@ -67,7 +67,7 @@ var moove = function(img){
       if(isDragging && !canDraw){
           ctx.clearRect(0,0,canvasWidth,canvasHeight);
           ctx.putImageData(saved_rect, 0, 0);
-          ctx.drawImage(img,canMouseX,canMouseY);
+          ctx.drawImage(img,canMouseX - 40,canMouseY - 40);
           var photo = document.querySelector('#photo');
           var data = canvas.toDataURL('image/png');
           photo.setAttribute('src', data);

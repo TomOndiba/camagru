@@ -27,11 +27,15 @@ main{
   margin-left: 5vw;
 }
 
-.titles{
+.titles, .sub-titles{
   font-family: futura;
   font-size: 40px;
   padding-right: 5vw;
   color: rgb(51, 51, 51);
+}
+
+.sub-titles{
+  font-size: 30px;
 }
 
 footer{
@@ -39,9 +43,20 @@ footer{
   height: 5vh;
   background-color: rgb(51, 51, 51);
   margin-top: 2vh;
-  position:fixed;
+  /*position:fixed;*/
   left:0px;
   bottom:0px;  
+}
+
+.camagru-center {
+/*  overflow-y: scroll;
+  height:700px;*/
+}
+
+.inside-camagru{
+  width: 75vw;
+  /*display: inline-block;*/
+  float: left;
 }
 
 .footer-credits{
@@ -51,6 +66,11 @@ footer{
     font-family: futura;
     margin-left: 2vw;
     padding-top: 1vh;
+}
+
+.button-frame{
+  border: 0;
+  background: transparent;
 }
 
 a{

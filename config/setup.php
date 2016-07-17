@@ -18,7 +18,7 @@
 
   try
   {
-    $dbh = new PDO($dsn[0].';'.$dsn[1], $DB_USER, $DB_PASSWORD);
+    $dbh = new PDO("mysql:host=localhost", $DB_USER, $DB_PASSWORD);
 
     $dbh->exec($create) 
     or die(print_r($dbh->errorInfo(), true));
@@ -28,6 +28,8 @@
 
     $bdd->exec($instruc) 
     or die(print_r($dbh->errorInfo(), true));
+
+    header("location: ../../index.php");
   }
   catch (PDOException $e)
   {
