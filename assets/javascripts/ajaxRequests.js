@@ -3,7 +3,9 @@ function getImageUrl(frame){
   var hr = new XMLHttpRequest();
   // Create some variables we need to send to our PHP file
   var url = "imagesrc.php";
-  var imgurl = document.getElementById("photo").src;
+  // var imgurl = document.getElementById("photo").src;
+  var canvasFinal = document.getElementById("canvas");
+  var imgurl = canvasFinal.toDataURL('image/png');
   var vars = "imgurl="+imgurl+'&frame='+frame;
   hr.open("POST", url, true);
   hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
@@ -19,4 +21,5 @@ function getImageUrl(frame){
   // Send the data to PHP now... and wait for response to update the status div
   hr.send(vars); // Actually execute the request
   document.getElementById("imgsrc").innerHTML = "processing...";
+  window.scrollTo(0, 0);
 }
