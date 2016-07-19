@@ -54,7 +54,10 @@
             </button>
             <button type="submit" name='frame-hipster' class="frame-button" onClick="getImageUrl('hipster')">
               <img src="frames/hipster.png" width="30" height="30" alt="submit">
-            </button>                        
+            </button>  
+            <button type="submit" name='red_dot' class="frame-button" onClick="getImageUrl('red_dot')">
+              <img src="frames/red_dot.png" width="30" height="30" alt="submit">
+            </button>                                    
 
         </div>
 
