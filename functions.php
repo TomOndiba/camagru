@@ -1,7 +1,6 @@
 <?php
 
   include_once 'config/database.php';
-  include_once 'add_frames.php';
   session_start();
   
   try{$bdd = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));}
@@ -16,6 +15,18 @@
 
   function connected(){
     return (!empty($_SESSION['connected']) && $_SESSION['connected']);
+  }
+
+  function return_id($username, $bdd){
+    $query = $bdd->prepare("SELECT * FROM `user` WHERE `username` = '$username' ");
+    $query->execute();
+
+    $result = $query->fetch();
+
+    if (empty($result))
+      return(0);
+
+    return($result['id']);
   }
 
   function reset_password($username, $token, $bdd){

@@ -10,15 +10,6 @@
     exit;    
   }
 
-  // $q = $_GET['q'];
-
-  // $xmlDoc = new DOMDocument();
-  // $xmlDoc->load('tmp/infos.xml');
-  // $x = $xmlDoc->getElementsByTagName('URL');
-  // print_r($x->item(0)->nodeValue);
-  // die;
-
-
 ?>
 
 <!DOCTYPE html>
@@ -46,18 +37,15 @@
             <canvas id="canvas"></canvas>
             <p class="sub-titles">3 - Choose your frame</p>
             <img src="./assets/images/grue.jpg" id="photo" alt="photo"><br>
-            <button type="submit" name='frame-violet' class="frame-button" onClick="getImageUrl('violet')">
+            <button type="submit" name='frame-violet' class="frame-button" onClick="getImageUrl('violet', '<?php echo $_SESSION['username']; ?>')">
               <img src="frames/violet.png" width="30" height="30" alt="submit">
             </button>
-            <button type="submit" name='frame-wood' class="frame-button" onClick="getImageUrl('wood')">
+            <button type="submit" name='frame-wood' class="frame-button" onClick="getImageUrl('wood', '<?php echo $_SESSION['username']; ?>')">
               <img src="frames/wood.png" width="30" height="30" alt="submit">
             </button>
-            <button type="submit" name='frame-hipster' class="frame-button" onClick="getImageUrl('hipster')">
+            <button type="submit" name='frame-hipster' class="frame-button" onClick="getImageUrl('hipster', '<?php echo $_SESSION['username']; ?>')">
               <img src="frames/hipster.png" width="30" height="30" alt="submit">
-            </button>  
-            <button type="submit" name='red_dot' class="frame-button" onClick="getImageUrl('red_dot')">
-              <img src="frames/red_dot.png" width="30" height="30" alt="submit">
-            </button>                                    
+            </button>                               
 
         </div>
 

@@ -6,7 +6,7 @@
   $db = "camagru";
 
   $create = "CREATE DATABASE `$db`;";
-  $instruc = "CREATE TABLE `user`(
+  $user = "CREATE TABLE `user`(
   `id` int(10) NOT NULL,
   `email` tinytext NOT NULL,
   `password` tinytext NOT NULL,
@@ -15,6 +15,23 @@
   `valid` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (id));
   ALTER TABLE `user` MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;";
+
+  $picture = "CREATE TABLE `picture`(
+  `id` int(10) NOT NULL,
+  `uid` tinytext NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `likes` text NOT NULL,
+  `comments` varchar(32) NOT NULL,
+  PRIMARY KEY (id));
+  ALTER TABLE `picture` MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;";
+
+  $comment = "CREATE TABLE `comment`(
+  `id` int(10) NOT NULL,
+  `comment` tinytext NOT NULL,
+  `user_id` int(10) NOT NULL,
+  `picture_id` text NOT NULL,
+  PRIMARY KEY (id));
+  ALTER TABLE `comment` MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;";  
 
   try
   {
@@ -26,8 +43,14 @@
     try{$bdd = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));}
     catch(Exception $e) { die('Erreur : ' . $e->getMessage());}
 
-    $bdd->exec($instruc) 
+    $bdd->exec($user) 
     or die(print_r($dbh->errorInfo(), true));
+
+    $bdd->exec($picture) 
+    or die(print_r($dbh->errorInfo(), true));
+
+    $bdd->exec($comment) 
+    or die(print_r($dbh->errorInfo(), true));        
 
     header("location: ../../index.php");
   }

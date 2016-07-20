@@ -1,6 +1,6 @@
-function getImageUrl(frame){
+function getImageUrl(frame, username){
     var base64 = document.getElementById("canvas").toDataURL();
-    var vars = 'frame='+frame+"&imgurl="+base64;
+    var vars = 'frame='+frame+"&imgurl="+base64+"&username="+username;
     ajax = new XMLHttpRequest();
     ajax.open( 'POST', 'imagesrc.php', true );
     ajax.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
