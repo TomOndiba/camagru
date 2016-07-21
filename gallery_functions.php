@@ -28,6 +28,14 @@
   }
 
   function get_likes($img_uid, $bdd){
+    $likes = list_likes($img_uid, $bdd);
+    if (empty($likes[0]))
+      return 0;
+
+    return count($likes);
+  }
+
+  function list_likes($img_uid, $bdd){
     $query = $bdd->prepare("SELECT * FROM `picture` WHERE `uid` = '$img_uid' ");
     $query->execute();
 
@@ -37,11 +45,7 @@
       return(0);
 
     $likes_row = $result['likes'];
-    $likes = explode(',', $likes_row);
-    if (empty($likes[0]))
-      return 0;
-
-    return count($likes);
+    return explode(',', $likes_row);
   }
 
   function get_total_pictures($bdd){

@@ -10,7 +10,16 @@ function getImageUrl(frame, username){
     if (ajax.readyState == 4 && ajax.status == 200) {
       document.getElementById("imgsrc").innerHTML = ajax.responseText;
     }}
-
 }
 
-var canvasFinal = document.getElementById('canvas');
+function addLike(img_uid, user_id){
+    var vars = 'img_uid='+img_uid+"&user_id="+user_id;
+    ajax = new XMLHttpRequest();
+    ajax.open( 'POST', 'update_likes.php', true );
+    ajax.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
+    ajax.send( vars );
+    ajax.onreadystatechange = function() {
+    if (ajax.readyState == 4 && ajax.status == 200) {
+      document.getElementById("likes").innerHTML = ajax.responseText;
+    }}
+}
