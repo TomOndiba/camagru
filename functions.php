@@ -29,6 +29,18 @@
     return($result['id']);
   }
 
+  function find_username($id, $bdd){
+    $query = $bdd->prepare("SELECT * FROM `user` WHERE `id` = '$id' ");
+    $query->execute();
+
+    $result = $query->fetch();
+
+    if (empty($result))
+      return(0);
+
+    return($result['username']);
+  }
+
   function reset_password($username, $token, $bdd){
     $query = $bdd->prepare("SELECT * FROM `user` WHERE `username` = '$username' ");
     $query->execute();

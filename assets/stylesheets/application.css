@@ -73,6 +73,30 @@ footer{
   background: transparent;
 }
 
+.gallery{
+  width: 75vw;
+  height: 50vh;
+}
+
+.gallery-pic{
+  width: 20vw;
+  margin-left: 5vw;
+  float: left;
+}
+
+.pages{
+  background-color: rgb(51, 51, 51);
+  color: rgb(249, 240, 249);
+  margin-left: 10vw;
+  margin-right: 10vw;
+  text-align: center;
+  font-size: 30px;
+}
+
+.pages a{
+  color: rgb(249, 240, 249);
+}
+
 a{
   text-decoration: none;
 }
