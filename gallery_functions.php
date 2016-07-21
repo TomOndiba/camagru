@@ -2,26 +2,30 @@
   
   function get_pictures_paths($page, $bdd){
     $total_rows = get_total_pictures($bdd);
-    $last_pic = $total_rows - (9 * $page);
-    $first_pic = $last_pic - 8;
+    // $last_pic = $total_rows - (9 * $page);
+    // $first_pic = $last_pic - 8;
 
-    if ($last_pic < 0)
-      $last_pic = 0;
-    if ($first_pic < 0)
-      $first_pic = 0;
+    // if ($last_pic < 0)
+    //   $last_pic = 0;
+    // if ($first_pic < 0)
+    //   $first_pic = 0;
+    if ($page == 0)
+      $page = 0;
+    else
+      $page -=1;
 
-    $query = $bdd->prepare("SELECT `id` FROM `picture` ORDER BY `id` DESC LIMIT 9, ".$first_pic);
-    // $query = $bdd->prepare("SELECT `id` FROM `picture` LIMIT 9, '$first_pic' ");
+    $first_image = 9 * $page;
+    $query_string = "SELECT `id`, `user_id` FROM `picture` ORDER BY `id` DESC LIMIT ".$first_image." ,9";
+    $query = $bdd->prepare($query_string);
     $query->execute();
-    $result = $query->fetch();
-    print_r($result);
-
-    // for ($i = $first_pic; $i <= $last_pic ; $i++) { 
-    //   $query = $bdd->prepare("SELECT * FROM `picture` WHERE `id` = '$i' ");
-    //   $query->execute();
-    //   $result = intval($query->fetch()[0]);
-    // }
-
+    $result = $query->fetchAll();
+    // print_r($result);
+    echo "Lenght ->".count($result)."\n";
+    echo "\nFirst ID ->".$result[0][0]."\n";
+    echo "\nLast ID ->".$result[count($result) -1][0]."\n";
+    // echo "\nLast Pic ->".$last_pic."\n";
+    // echo "\nFirst Pic ->".$first_pic;
+    // echo "\nQUERY ->".$query_string;
   }
 
   function get_total_pictures($bdd){

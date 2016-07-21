@@ -3,7 +3,7 @@
   session_start();
 
   $dsn = explode(';', $DB_DSN);
-  $db = "camagru";
+  $db = "camagruu";
 
   $create = "CREATE DATABASE `$db`;";
   $user = "CREATE TABLE `user`(
@@ -43,16 +43,16 @@
     try{$bdd = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));}
     catch(Exception $e) { die('Erreur : ' . $e->getMessage());}
 
-    $bdd->exec($user) 
+    $bdd->exec($user.$picture.$comment) 
     or die(print_r($dbh->errorInfo(), true));
 
-    $bdd->exec($picture) 
-    or die(print_r($dbh->errorInfo(), true));
+    // $bdd->exec($picture) 
+    // or die(print_r($dbh->errorInfo(), true));
 
-    $bdd->exec($comment) 
-    or die(print_r($dbh->errorInfo(), true));        
+    // $bdd->exec($comment) 
+    // or die(print_r($dbh->errorInfo(), true));        
 
-    header("location: ../../index.php");
+    header("location: ../index.php");
   }
   catch (PDOException $e)
   {
