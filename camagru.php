@@ -21,8 +21,7 @@
       <p class='titles' id="demo">Hello <?php echo $_SESSION["username"] ?></p>
       <div id="imgsrc"></div>
 
-       <div class="camagru-center" id='paint'>
-          
+       <div class="camagru-center" id='paint'>          
           <p class="sub-titles">1 - Take your picture</p>
             <video id="video"></video><br>
             <button id="startbutton">Prendre une photo</button>
@@ -33,7 +32,7 @@
             <button id="white" onClick="drawColor = '#FFFFFF'">white</button>
             <button id="cyan" onClick="drawColor = '#00ffff'">cyan</button>
             <button id="yellow" onClick="drawColor = '#FFFF00'">yellow</button><br>
-            
+
             <canvas id="canvas"></canvas>
             <p class="sub-titles">3 - Choose your frame</p>
             <img src="./assets/images/grue.jpg" id="photo" alt="photo"><br>
@@ -45,10 +44,8 @@
             </button>
             <button type="submit" name='frame-hipster' class="frame-button" onClick="getImageUrl('hipster', '<?php echo $_SESSION['username']; ?>')">
               <img src="frames/hipster.png" width="30" height="30" alt="submit">
-            </button>                               
-
+            </button>
         </div>
-
 
       <div class="camagru-right">
         
