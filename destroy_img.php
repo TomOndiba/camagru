@@ -11,5 +11,8 @@
   $query->execute();
   unlink($img_path);
 
+  $request = "DELETE FROM comment WHERE picture_uid = '".$img_uid."';";
+  $query = $bdd->prepare($request);
+  $query->execute();  
 
 ?>

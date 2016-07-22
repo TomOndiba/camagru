@@ -44,7 +44,11 @@
       <div id="destroyImg"></div>
     <?php } ?>
     <img src="<?php echo $img_url ?>"><br>
+   <?php if (connected()) { ?>
     <a href="#" style="float: left;" onclick="addLike(<?php echo '\''.$img_uid.'\', '.$user_id ?>)"><img src="assets/images/thumbs_up.png" width="100px"></a>
+  <?php }else{ ?>
+    <img src="assets/images/thumbs_up.png" width="100px">
+  <?php } ?>
     <p id="likes"><?php echo $likes ?></p>
   </div>
 
@@ -58,15 +62,17 @@
     <?php } ?>
   </div>
 
-  <div class="comment-gallery">
-    <form method="POST" name='comment'>
-      <p>
-        Comment:<br>
-        <textarea name="commentfield" rows=3; cols=40></textarea>
-      </p>
-      <input type="submit" name="comment"  value="Poster">
-    </form>
-  </div>
+  <?php if (connected()) { ?>
+    <div class="comment-gallery">
+      <form method="POST" name='comment'>
+        <p>
+          Comment:<br>
+          <textarea name="commentfield" rows=3; cols=40></textarea>
+        </p>
+        <input type="submit" name="comment"  value="Poster">
+      </form>
+    </div>
+  <?php } ?>
 
   <form method="POST" action=''>
     <input type="submit" name="signout"  value="Sign Out">
