@@ -102,6 +102,10 @@ footer{
   float: left;
 }
 
+.gallery a{
+  color: red !important;
+}
+
 a{
   text-decoration: none;
 }

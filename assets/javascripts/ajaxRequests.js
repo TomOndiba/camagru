@@ -22,4 +22,16 @@ function addLike(img_uid, user_id){
     if (ajax.readyState == 4 && ajax.status == 200) {
       document.getElementById("likes").innerHTML = ajax.responseText;
     }}
+}    
+
+function destroyImg(img_uid, user_id){
+    var vars = 'img_uid='+img_uid+"&user_id="+user_id;
+    ajax = new XMLHttpRequest();
+    ajax.open( 'POST', 'destroy_img.php', true );
+    ajax.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
+    ajax.send( vars );
+    ajax.onreadystatechange = function() {
+    if (ajax.readyState == 4 && ajax.status == 200) {
+      document.getElementById("destroyImg").innerHTML = ajax.responseText;
+    }}    
 }
