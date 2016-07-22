@@ -29,7 +29,7 @@
   `id` int(10) NOT NULL,
   `comment` tinytext NOT NULL,
   `user_id` int(10) NOT NULL,
-  `picture_id` text NOT NULL,
+  `picture_uid` text NOT NULL,
   PRIMARY KEY (id));
   ALTER TABLE `comment` MODIFY `id` int(10) NOT NULL AUTO_INCREMENT;";  
 

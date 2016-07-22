@@ -8,6 +8,20 @@
   $likes = get_likes($img_uid, $bdd);
   $user_id = return_id($_SESSION['username'], $bdd);
 
+    if (filter_has_var( INPUT_POST,  'comment' ))
+  {
+    $comment = parse_input($_POST['commentfield']);
+
+    if (!is_null($comment)){
+      $req = $bdd->prepare('INSERT INTO comment(comment, user_id, picture_uid) VALUES(:comment, :user_id, :picture_uid)');
+      $req->execute(array(
+      'comment' => $comment,
+      'user_id' => $user_id,
+      'picture_uid' => $img_uid
+      ));    
+    }
+  }
+
 ?>
 
 <!DOCTYPE html>
@@ -29,6 +43,17 @@
     <img src="<?php echo $img_url ?>"><br>
     <a href="#" style="float: left;" onclick="addLike(<?php echo '\''.$img_uid.'\', '.$user_id ?>)"><img src="assets/images/thumbs_up.png" width="100px"></a>
     <p id="likes"><?php echo $likes ?></p>
+  </div>
+
+
+  <div class="comment-gallery">
+    <form method="POST" name='comment'>
+      <p>
+        Comment:<br>
+        <textarea name="commentfield" rows=3; cols=40></textarea>
+      </p>
+      <input type="submit" name="comment"  value="Poster">
+    </form>
   </div>
 
   <form method="POST" action=''>
