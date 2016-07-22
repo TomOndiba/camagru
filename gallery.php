@@ -18,11 +18,13 @@
   <body>
   <?php include 'layouts/header.html' ?>
   <main>
-  <p class="titles">Hello <?php echo $_SESSION["username"]; ?></p>
-  <p class="sub-titles">
-    You'll find here all previous taken pictures. <br />
-    Thanks, and have fun
-  </p>
+  <div class="presentation-text">
+    <p class="titles">Hello <?php echo $_SESSION["username"]; ?></p>
+    <p class="sub-titles">
+      You'll find here all previous taken pictures. <br />
+      Thanks, and have fun !
+    </p>
+  </div>    
 
   <div class="gallery">
     <?php foreach($pics as $key){ ?>
@@ -35,6 +37,8 @@
     <?php } ?>
   </div>
 
+  <div class="clear"></div>
+
   <div class="pages">
     <p>Select page</p>
     <?php for ($i=1; $i <= $total_pages ; $i++) {?> 
@@ -42,9 +46,6 @@
     <?php } ?>
   </div>
 
-  <form method="POST" action=''>
-    <input type="submit" name="signout"  value="Sign Out">
-  </form>
   </main>
   <?php include 'layouts/footer.html' ?> 
 </body>

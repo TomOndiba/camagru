@@ -3,7 +3,7 @@
   session_start();
 
   $dsn = explode(';', $DB_DSN);
-  $db = "camagruu";
+  $db = "camagru";
 
   $create = "CREATE DATABASE `$db`;";
   $user = "CREATE TABLE `user`(

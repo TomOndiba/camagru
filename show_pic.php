@@ -33,27 +33,31 @@
   <body>
   <?php include 'layouts/header.html' ?>
   <main>
-  <p class="titles">Hello <?php echo $_SESSION["username"]; ?></p>
-  <p class="sub-titles">
-    Feel free to like or comment picture !
-  </p>
+  <div class="presentation-text">  
+    <p class="titles">Hello <?php echo $_SESSION["username"]; ?></p>
+    <p class="sub-titles">
+      Feel free to like or comment picture !
+    </p>
+  </div>
 
-  <div class="gallery">
+  <div class="gallery-uniq">
     <?php if ($img_user == $_SESSION['username']) { ?>
       <a href="gallery.php" onclick="destroyImg('<?php echo $img_uid; ?>', '<?php echo $user_id ?>'), id='destroyImgLink'">Delete picture ?</a>
       <div id="destroyImg"></div>
     <?php } ?>
-    <img src="<?php echo $img_url ?>"><br>
+    <img src="<?php echo $img_url ?>" id='img-uniq'><br>
    <?php if (connected()) { ?>
-    <a href="#" style="float: left;" onclick="addLike(<?php echo '\''.$img_uid.'\', '.$user_id ?>)"><img src="assets/images/thumbs_up.png" width="100px"></a>
+    <p style="float: left; cursor: pointer;" onclick="addLike(<?php echo '\''.$img_uid.'\', '.$user_id ?>)"><img src="assets/images/thumbs_up.png" width="100px"></a>
   <?php }else{ ?>
     <img src="assets/images/thumbs_up.png" width="100px">
   <?php } ?>
     <p id="likes"><?php echo $likes ?></p>
   </div>
 
+  <div class="clear"></div>
 
-  <div class="list-comments">
+
+  <div class="gallery-uniq">
     <? foreach ($comments as $key) { ?>
       <div class='comment-text'>
         <p><?php echo find_username($key['user_id'], $bdd) ?> wrote:</p>
@@ -63,7 +67,7 @@
   </div>
 
   <?php if (connected()) { ?>
-    <div class="comment-gallery">
+    <div class="gallery-uniq">
       <form method="POST" name='comment'>
         <p>
           Comment:<br>
@@ -74,9 +78,6 @@
     </div>
   <?php } ?>
 
-  <form method="POST" action=''>
-    <input type="submit" name="signout"  value="Sign Out">
-  </form>
   </main>
   <?php include 'layouts/footer.html' ?> 
 </body>
