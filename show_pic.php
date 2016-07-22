@@ -6,19 +6,22 @@
   $img_uid = explode('.' ,explode('/', $img_url)[2])[0];
   $img_user = explode('/', $img_url)[1];
   $likes = get_likes($img_uid, $bdd);
+  $comments = get_comments($img_uid, $bdd);
   $user_id = return_id($_SESSION['username'], $bdd);
 
     if (filter_has_var( INPUT_POST,  'comment' ))
   {
     $comment = parse_input($_POST['commentfield']);
 
-    if (!is_null($comment)){
+    if (!empty($comment)){
       $req = $bdd->prepare('INSERT INTO comment(comment, user_id, picture_uid) VALUES(:comment, :user_id, :picture_uid)');
       $req->execute(array(
       'comment' => $comment,
       'user_id' => $user_id,
       'picture_uid' => $img_uid
-      ));    
+      ));
+
+      header('Location: show_pic.php?path='.$img_url);
     }
   }
 
@@ -45,6 +48,15 @@
     <p id="likes"><?php echo $likes ?></p>
   </div>
 
+
+  <div class="list-comments">
+    <? foreach ($comments as $key) { ?>
+      <div class='comment-text'>
+        <p><?php echo find_username($key['user_id'], $bdd) ?> wrote:</p>
+        <p style="font-size: 20px"><?php echo $key['comment']; ?></p>
+      </div>    
+    <?php } ?>
+  </div>
 
   <div class="comment-gallery">
     <form method="POST" name='comment'>

@@ -54,4 +54,13 @@
     return(intval($query->fetch()[0]));
   }
 
+  function get_comments($img_uid, $bdd){
+    $query = $bdd->prepare("SELECT * FROM `comment` WHERE `picture_uid` = '$img_uid' ");
+    $query->execute();
+
+    $result = $query->fetchAll();
+
+    return $result;
+  }
+
 ?>
