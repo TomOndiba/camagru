@@ -28,7 +28,7 @@
     <?php foreach($pics as $key){ ?>
       <div class="gallery-pic">
         <a href="show_pic.php?path=<?php echo $key; ?>">
-          <img src="<?php echo $key; ?>", width="200px">
+          <img src="<?php echo $key; ?>", width="200px" class="img-gal">
         </a>
       </div>
 
