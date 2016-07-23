@@ -38,8 +38,8 @@
   $dst_y = 0;
   $src_x = 0;
   $src_y = 0;
-  $src_w = 620;
-  $src_h = 620;
+  $src_w = 500;
+  $src_h = 500;
 
   imagecopymerge($dst_im, $src_im, $dst_x, $dst_y, $src_x, $src_y, $src_w, $src_h, 100);
 

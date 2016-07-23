@@ -41,6 +41,22 @@
     return($result['username']);
   }
 
+  function get_all_images($bdd){
+    $query = $bdd->prepare("SELECT uid, user_id FROM `picture`");
+    $query->execute();
+
+    $result = $query->fetchAll();
+
+    $paths = [];
+    $i = 0;
+    foreach ($result as $key) {
+      $username = find_username($key['user_id'], $bdd);
+      $paths[$i] = 'pictures/'.$username.'/'.$key['uid'].'.png';
+      $i++;
+    }
+    return $paths;
+  }
+
   function reset_password($username, $token, $bdd){
     $query = $bdd->prepare("SELECT * FROM `user` WHERE `username` = '$username' ");
     $query->execute();

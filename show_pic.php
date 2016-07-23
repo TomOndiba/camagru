@@ -71,7 +71,7 @@
       <form method="POST" name='comment'>
         <p>
           Comment:<br>
-          <textarea name="commentfield" rows=3; cols=40></textarea>
+          <textarea name="commentfield" rows=3; cols=25></textarea>
         </p>
         <input type="submit" name="comment"  value="Poster">
       </form>

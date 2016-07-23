@@ -23,7 +23,7 @@ var drawMode = function(){
       canvas       = document.querySelector('#canvas'),
       photo        = document.querySelector('#photo'),
       startbutton  = document.querySelector('#startbutton'),
-      width = 620,
+      width = 500,
       height = 0;
 
   navigator.getMedia = ( navigator.getUserMedia ||
@@ -68,7 +68,7 @@ var drawMode = function(){
     var data = canvas.toDataURL('image/png');
     photo.setAttribute('src', data);
     var ctx = document.getElementById('canvas').getContext('2d');
-    saved_rect = ctx.getImageData(0, 0, 620, 620);
+    saved_rect = ctx.getImageData(0, 0, 500, 500);
   }
 
   startbutton.addEventListener('click', function(ev){

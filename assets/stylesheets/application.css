@@ -106,6 +106,14 @@ section {
   margin: 70px auto 20px;
 }
 
+.pic-and-gallery-div{
+  padding: 20px;
+  margin: 70px auto 20px;
+  float: left;
+}
+
+
+
 h1 {
 
   font-size: 2em;
@@ -136,6 +144,10 @@ p {
   margin-left: 5vw;
 }*/
 
+#photo{
+  width: 500px;
+}
+
 .titles, .sub-titles{
   font-family: futura;
   font-size: 40px;
@@ -152,10 +164,15 @@ p {
 }
 
 .mini-gallery{
-  height: 300px;
+  height: 420px;
+  width: 500px;
   overflow: auto;
-  background-color: rgb(249, 240, 249);
-  float:right;
+  /*background-color: rgb(249, 240, 249);*/
+  /*float:left;*/
+}
+
+.mini-image{
+  width: 100px;
 }
 
 .inside-camagru{

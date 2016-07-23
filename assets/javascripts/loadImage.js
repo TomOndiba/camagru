@@ -15,7 +15,7 @@ function draw(ev) {
   var photo = document.querySelector('#photo');
   var data = canvas.toDataURL('image/png');
   photo.setAttribute('src', data);
-  saved_rect = ctx.getImageData(0, 0, 620, 620);
+  saved_rect = ctx.getImageData(0, 0, 500, 500);
   moove(img);
 }
 document.getElementById("uploadimage").addEventListener("change", draw, false)
