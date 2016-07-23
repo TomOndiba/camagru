@@ -18,7 +18,7 @@
 <html>
   <?php include 'layouts/head.html' ?>
   <body>
-  <?php include 'layouts/header.html' ?>
+  <?php include 'layouts/header.php' ?>
     <main>
     <div class="presentation-text">
       <p class='titles' id="demo">Hello <?php echo $_SESSION["username"] ?></p>
@@ -28,7 +28,7 @@
         <div class="pic-and-gallery-div">          
           <p class="sub-titles">1 - Take your picture</p>
             <video id="video"></video><br>
-            <button id="startbutton">Prendre une photo</button>            
+            <button id="startbutton">Take a picture</button>            
         </div>
         <div class="pic-and-gallery-div mini-gallery">          
           <p class="sub-titles">Last pictures</p>

@@ -20,7 +20,7 @@
     if ($result)
     {
       header('location: create.php');
-      $error = "email already taken";
+      $_SESSION['error'] = "email already taken";
       return;
     }
 
@@ -28,13 +28,13 @@
 
     if (empty($email) || empty($password) || empty($username))
     {
-      $error = "One field is empty";
+      $_SESSION['error'] = "One field is empty";
     }
     elseif (strlen($password) < 6 ) {
-      $error = "password too weak";
+      $_SESSION['error'] = "Password too weak";
     }
     elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-      $error = "Not an email";
+      $_SESSION['error'] = "Enter valid email";
     }
     else
     {
@@ -56,7 +56,7 @@
 <html>
   <?php include 'layouts/head.html' ?>
   <body>
-  <?php include 'layouts/header.html' ?>
+  <?php include 'layouts/header.php' ?>
     <main>
       <div class="presentation-text">
         <p class="titles">Sign Up</p>

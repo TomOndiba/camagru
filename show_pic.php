@@ -24,6 +24,8 @@
       send_comment_email($img_url, find_email($img_user, $bdd));
       header('Location: show_pic.php?path='.$img_url);
     }
+    else
+      $_SESSION['error'] = 'Empty comment';
   }
 
 ?>
@@ -32,7 +34,7 @@
 <html>
   <?php include 'layouts/head.html' ?>
   <body>
-  <?php include 'layouts/header.html' ?>
+  <?php include 'layouts/header.php' ?>
   <main>
   <div class="presentation-text">  
     <p class="titles">Hello <?php echo $_SESSION["username"]; ?></p>

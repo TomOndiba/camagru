@@ -17,6 +17,8 @@
       $query->execute();
       header("location: camagru.php");
     }
+    else
+      $_SESSION['error'] = 'Password too weak';
   }
 ?>
 
@@ -24,7 +26,7 @@
 <html>
   <?php include 'layouts/head.html' ?>
   <body>
-  <?php include 'layouts/header.html' ?>
+  <?php include 'layouts/header.php' ?>
     <main>
     <div class="presentation-text">
       <p class='titles'>Hello <?php echo $_SESSION["username"] ?></p>

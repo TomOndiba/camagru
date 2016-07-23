@@ -1,6 +1,8 @@
 var saved_rect = null;
 var canDraw = false;
 var drawButton = document.querySelector('.draw');
+var videosrc;
+var streamingGlobal = false;
 
 var drawMode = function(){
   if (canDraw){
@@ -42,11 +44,13 @@ var drawMode = function(){
       } else {
         var vendorURL = window.URL || window.webkitURL;
         video.src = vendorURL.createObjectURL(stream);
+        videosrc.src = vendorURL.createObjectURL(stream);
       }
       video.play();
     },
     function(err) {
       console.log("An error occured! " + err);
+      startbutton.disabled = true;
     }
   );
 
@@ -58,17 +62,19 @@ var drawMode = function(){
       canvas.setAttribute('width', width);
       canvas.setAttribute('height', height);
       streaming = true;
+      streamingGlobal = streaming;
     }
   }, false);
 
   function takepicture() {
-    canvas.width = width;
-    canvas.height = height;
-    canvas.getContext('2d').drawImage(video, 0, 0, width, height);
-    var data = canvas.toDataURL('image/png');
-    photo.setAttribute('src', data);
-    var ctx = document.getElementById('canvas').getContext('2d');
-    saved_rect = ctx.getImageData(0, 0, 500, 500);
+    if (streamingGlobal){
+        canvas.width = width;
+        canvas.height = height;
+        canvas.getContext('2d').drawImage(video, 0, 0, width, height);
+        var data = canvas.toDataURL('image/png');
+        photo.setAttribute('src', data);
+        var ctx = document.getElementById('canvas').getContext('2d');
+        saved_rect = ctx.getImageData(0, 0, 500, 500);}
   }
 
   startbutton.addEventListener('click', function(ev){

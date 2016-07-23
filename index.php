@@ -15,8 +15,7 @@
 
     if (empty($username) || empty($password))
     {
-      $flag = "EMPTY VALUES";
-      $error = "One field is empty";
+      $_SESSION['error'] = "One field is empty";
     }
     else
     {
@@ -24,14 +23,13 @@
       $result = $query->fetch();
       if (password_verify($password, $result['password']))
       {
-        $flag = "OK !";
         $_SESSION['username'] = $result['username'];
         $_SESSION['connected'] = true;
         header("location: camagru.php");
         exit;
       }
       else
-        $flag = "NOT OK !";
+        $_SESSION['error'] = "Bad username or password";
     }
   }
 ?>
@@ -41,7 +39,7 @@
 <html>
   <?php include 'layouts/head.html' ?>
   <body>
-  <?php include 'layouts/header.html' ?>
+  <?php include 'layouts/header.php' ?>
     <main>
     <div class="presentation-text">
       <p class="titles">Sign In</p>
