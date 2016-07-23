@@ -43,6 +43,7 @@
   <body>
   <?php include 'layouts/header.html' ?>
     <main>
+    <div class="presentation-text">
       <p class="titles">Sign In</p>
       <form method="post" name="login">
         <p>Email:<input type="text" name="email"></p>
@@ -51,6 +52,7 @@
       </form>
       <br/>
       <p>Want to create an account ?<a href="./create.php"><button>Sign Up</button></a></p>
+    </div>
     </main>
   <?php include 'layouts/footer.html' ?>
   </body>

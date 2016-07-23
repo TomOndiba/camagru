@@ -58,14 +58,16 @@
   <body>
   <?php include 'layouts/header.html' ?>
     <main>
-      <p class="titles">Sign Up</p>
-      <form method="post" name="signup">
-        <p>Email:<input type="text" name="email"></p>
-        <p>Username:<input type="text" name="username"></p>
-        <p>Password:<input type="password" name="password"></p>
-        <input type="submit" name="signup" value="Create User">
-      </form>
-      <a href="./">Sign In</a>
+      <div class="presentation-text">
+        <p class="titles">Sign Up</p>
+        <form method="post" name="signup">
+          <p>Email:<input type="text" name="email"></p>
+          <p>Username:<input type="text" name="username"></p>
+          <p>Password:<input type="password" name="password"></p>
+          <input type="submit" name="signup" value="Create User">
+        </form>
+        <a href="./">Sign In</a>
+      </div>
     </main>
     <?php include 'layouts/footer.html' ?>
   </body>

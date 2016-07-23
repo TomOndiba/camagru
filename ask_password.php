@@ -14,18 +14,15 @@
   <body>
   <?php include 'layouts/header.html' ?>
     <main>
-      <p class='titles'>Reset your password</p>
+      <div class="presentation-text">
+        <p class='titles'>Reset your password</p>
 
-      <form method="post" name="reset_password_request">
-        <p>Please fill with your email</p>
-        <p>Email:<input type="text" name="email">
-        <input type="submit" name="reset_password_request" value="Send"></p>
-      </form>
-
-
-      <form method="POST" action=''>
-        <input type="submit" name="signout"  value="Sign Out">
-      </form>
+        <form method="post" name="reset_password_request">
+          <p>Please fill with your email</p>
+          <p>Email:<input type="text" name="email">
+          <input type="submit" name="reset_password_request" value="Send"></p>
+        </form>
+      </div>
     </main>
   <?php include 'layouts/footer.html'; ?>
   </body>

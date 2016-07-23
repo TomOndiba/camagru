@@ -18,10 +18,12 @@
   <body>
   <?php include 'layouts/header.html' ?>
     <main>
+    <div class="presentation-text">
       <p class='titles' id="demo">Hello <?php echo $_SESSION["username"] ?></p>
       <div id="imgsrc"></div>
+    </div>
 
-       <div class="camagru-center" id='paint'>          
+       <div class="presentation-text" id='paint'>          
           <p class="sub-titles">1 - Take your picture</p>
             <video id="video"></video><br>
             <button id="startbutton">Prendre une photo</button>
