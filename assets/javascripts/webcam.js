@@ -1,7 +1,6 @@
 var saved_rect = null;
 var canDraw = false;
 var drawButton = document.querySelector('.draw');
-var videosrc;
 var streamingGlobal = false;
 
 var drawMode = function(){
@@ -44,7 +43,6 @@ var drawMode = function(){
       } else {
         var vendorURL = window.URL || window.webkitURL;
         video.src = vendorURL.createObjectURL(stream);
-        videosrc.src = vendorURL.createObjectURL(stream);
       }
       video.play();
     },
