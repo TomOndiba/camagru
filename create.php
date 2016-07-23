@@ -26,17 +26,14 @@
 
     $req = $bdd->prepare('INSERT INTO user(email, password, username, token) VALUES(:email, :password, :username, :token)');
 
-    if (empty($email) || empty($password) || empty($username))
+    if(empty($email) || empty($password) || empty($username))
     {
       $_SESSION['error'] = "One field is empty";
     }
-    elseif (strlen($password) < 6 ) {
-      $_SESSION['error'] = "Password too weak";
-    }
-    elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $_SESSION['error'] = "Enter valid email";
     }
-    else
+    elseif(password_check($password))
     {
       $req->execute(array(
       'email' => $email,

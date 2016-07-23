@@ -10,7 +10,7 @@
   {
     $password = parse_input($_POST["password"]);
     $username = $_GET['username'];
-    if (strlen($password) > 5 )
+    if (password_check($password))
     {
       $password = password_hash($password, PASSWORD_DEFAULT);
       $query = $bdd->prepare("UPDATE user SET password='$password' WHERE `username` = '$username'");

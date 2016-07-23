@@ -3,6 +3,10 @@
   include 'gallery_functions.php';
 
   $img_url = $_GET['path'];
+
+  if (!file_exists($img_url))
+    header('Location: gallery.php');
+
   $img_uid = explode('.' ,explode('/', $img_url)[2])[0];
   $img_user = explode('/', $img_url)[1];
   $likes = get_likes($img_uid, $bdd);

@@ -13,6 +13,18 @@
     return $data;
   }
 
+  function password_check($password){
+    if (strlen($password) < 8){
+      $_SESSION['error'] = "Password too short";
+      return false;
+    }
+    elseif(!preg_match("/[A-Z]/", $password)){
+      $_SESSION['error'] = "At least one maj in password";
+      return false;
+    }
+    return true;
+  }
+
   function connected(){
     return (!empty($_SESSION['connected']) && $_SESSION['connected']);
   }
