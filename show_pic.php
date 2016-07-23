@@ -21,6 +21,7 @@
       'picture_uid' => $img_uid
       ));
 
+      send_comment_email($img_url, find_email($img_user, $bdd));
       header('Location: show_pic.php?path='.$img_url);
     }
   }

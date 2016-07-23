@@ -63,4 +63,23 @@
     return $result;
   }
 
+  function send_comment_email($img_url, $email){
+    $url = $_SERVER[HTTP_HOST].explode('/', $_SERVER[REQUEST_URI])[0].'/';
+    $subject = "New comment has arrived" ;
+    $entete = "From: noreply@camagru.com" ;
+     
+    $message = 'Hi there !,
+     
+    A new comment has arrived on your picture !
+    Click the link below to see it:  
+    http://'.$_SERVER[HTTP_HOST].'/camagru/show_pic.php?path='.urlencode($img_url).'
+     
+     
+    ---------------
+    Plz 125%';
+     
+     
+    mail($email, $subject, $message, $entete) ; // Envoi du mail    
+  }
+
 ?>

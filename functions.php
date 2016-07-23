@@ -41,8 +41,20 @@
     return($result['username']);
   }
 
+  function find_email($username, $bdd){
+    $query = $bdd->prepare("SELECT * FROM `user` WHERE `username` = '$username' ");
+    $query->execute();
+
+    $result = $query->fetch();
+
+    if (empty($result))
+      return(0);
+
+    return($result['email']);
+  }  
+
   function get_all_images($bdd){
-    $query = $bdd->prepare("SELECT uid, user_id FROM `picture`");
+    $query = $bdd->prepare("SELECT uid, user_id FROM `picture` ORDER BY id DESC");
     $query->execute();
 
     $result = $query->fetchAll();

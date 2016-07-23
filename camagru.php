@@ -57,9 +57,9 @@
           <button type="submit" name='frame-wood' class="frame-button" onClick="getImageUrl('wood', '<?php echo $_SESSION['username']; ?>')">
             <img src="frames/wood.png" width="30" height="30" alt="submit">
           </button>
-          <button type="submit" name='frame-hipster' class="frame-button" onClick="getImageUrl('hipster', '<?php echo $_SESSION['username']; ?>')">
-            <img src="frames/hipster.png" width="30" height="30" alt="submit">
-          </button>
+          <button type="submit" name='frame-pkmngo' class="frame-button" onClick="getImageUrl('pkmngo', '<?php echo $_SESSION['username']; ?>')">
+            <img src="frames/pkmngo.png" width="30" height="30" alt="submit">
+          </button>          
         </div>
     </main>
   <?php include 'layouts/footer.html' ?>

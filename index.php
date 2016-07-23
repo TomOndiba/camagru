@@ -9,11 +9,11 @@
 
   if (filter_has_var( INPUT_POST,  'login' ))
   {
-    $email = parse_input($_POST["email"]);
+    $username = parse_input($_POST["username"]);
     $password = parse_input($_POST["password"]);
-    $query = $bdd->prepare("SELECT * FROM `user` WHERE `email` = '$email' ");
+    $query = $bdd->prepare("SELECT * FROM `user` WHERE `username` = '$username' ");
 
-    if (empty($email) || empty($password))
+    if (empty($username) || empty($password))
     {
       $flag = "EMPTY VALUES";
       $error = "One field is empty";
@@ -46,7 +46,7 @@
     <div class="presentation-text">
       <p class="titles">Sign In</p>
       <form method="post" name="login">
-        <p>Email:<input type="text" name="email"></p>
+        <p>Login:<input type="text" name="username"></p>
         <p>Password:<input type="password" name="password"></p>
         <input type="submit" name="login" value="Sign In">
       </form>
