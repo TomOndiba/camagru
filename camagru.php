@@ -2,6 +2,7 @@
   include 'functions.php';
 
   if (!connected()){
+    $_SESSION['error'] = 'please login first';
     header("location: index.php");
     exit;
   }
