@@ -11,8 +11,20 @@ function getImageUrl(frame, username){
         ajax.onreadystatechange = function() {
         if (ajax.readyState == 4 && ajax.status == 200) {
           document.getElementById("imgsrc").innerHTML = ajax.responseText;
+          reloadMiniGallery();
         }}
     }
+}
+
+function reloadMiniGallery(){
+    var vars = 'mini_gallery=true';
+    ajax = new XMLHttpRequest();
+    ajax.open( 'POST', 'layouts/mini-gallery.php', true );
+    ajax.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
+    ajax.send(vars);
+    ajax.onreadystatechange = function() {
+    if (ajax.readyState == 4 && ajax.status == 200) {
+      document.getElementById("the-mini-gallery").innerHTML = ajax.responseText;}}
 }
 
 function addLike(img_uid, user_id){

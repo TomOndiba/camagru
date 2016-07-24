@@ -9,11 +9,7 @@
     header("location: waiting.php");
     exit;
   }
-
-  $img_paths = get_all_images($bdd);
-
 ?>
-
 <!DOCTYPE html>
 <html>
   <?php include 'layouts/head.html' ?>
@@ -30,11 +26,8 @@
             <video id="video"></video><br>
             <button id="startbutton">Take a picture</button>            
         </div>
-        <div class="pic-and-gallery-div mini-gallery">          
-          <p class="sub-titles">Last pictures</p>
-          <?php foreach ($img_paths as $key) { ?>
-            <a href="show_pic.php?path=<?php echo $key; ?>"><img src="<?php echo $key; ?>" class="mini-image"></a>
-          <?php } ?>
+        <div class="pic-and-gallery-div mini-gallery" id='the-mini-gallery'>
+          <?php include 'layouts/mini-gallery.php'; ?>
         </div>
       </div>
       <div class="clear"></div>
