@@ -1,6 +1,5 @@
 <?php
   include 'functions.php';
-  $flag = "NOTHING HAPPENED";
    
    if (connected()){
     header("location: camagru.php");
@@ -11,16 +10,16 @@
   {
     $username = parse_input($_POST["username"]);
     $password = parse_input($_POST["password"]);
-    $query = $bdd->prepare("SELECT * FROM `user` WHERE `username` = '$username' ");
 
     if (empty($username) || empty($password))
-    {
       $_SESSION['error'] = "One field is empty";
-    }
     else
     {
-      $query->execute();
-      $result = $query->fetch();
+      $req = $bdd->prepare("SELECT * FROM user where username = ?");      
+      $req->execute(array(
+        $username
+      ));
+      $result = $req->fetch();
       if (password_verify($password, $result['password']))
       {
         $_SESSION['username'] = $result['username'];
