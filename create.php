@@ -48,7 +48,7 @@
     elseif(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
       $_SESSION['error'] = "Enter valid email";
     }
-    elseif (preg_match("/[<;()\'\"&\\/]/", $username)) {
+    elseif (preg_match("/[<;()\'\"&\\/,]/", $username)) {
       $_SESSION['error'] = "Don't use special charactes";
     }
     elseif (strlen($username) < 3) {
