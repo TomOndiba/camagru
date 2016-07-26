@@ -1,5 +1,4 @@
 function draw(ev) {
-  console.log(ev);
   var ctx = document.getElementById('canvas').getContext('2d'),
       img = new Image(),
       f = document.getElementById("uploadimage").files[0],

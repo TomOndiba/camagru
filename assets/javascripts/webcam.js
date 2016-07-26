@@ -47,7 +47,6 @@ var drawMode = function(){
       video.play();
     },
     function(err) {
-      console.log("An error occured! " + err);
       startbutton.disabled = true;
     }
   );
