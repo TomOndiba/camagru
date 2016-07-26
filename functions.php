@@ -30,8 +30,9 @@
   }
 
   function return_id($username, $bdd){
-    $query = $bdd->prepare("SELECT * FROM `user` WHERE `username` = '$username' ");
-    $query->execute();
+    $query = $bdd->prepare("SELECT * FROM `user` WHERE `username` = ?");
+    $query->execute(array(
+      $username));
 
     $result = $query->fetch();
 
@@ -42,8 +43,9 @@
   }
 
   function find_username($id, $bdd){
-    $query = $bdd->prepare("SELECT * FROM `user` WHERE `id` = '$id' ");
-    $query->execute();
+    $query = $bdd->prepare("SELECT * FROM `user` WHERE `id` = ?");
+    $query->execute(array(
+      $id));
 
     $result = $query->fetch();
 
@@ -54,8 +56,9 @@
   }
 
   function find_email($username, $bdd){
-    $query = $bdd->prepare("SELECT * FROM `user` WHERE `username` = '$username' ");
-    $query->execute();
+    $query = $bdd->prepare("SELECT * FROM `user` WHERE `username` = ? ");
+    $query->execute(array(
+      $username));
 
     $result = $query->fetch();
 
@@ -82,8 +85,9 @@
   }
 
   function reset_password($username, $token, $bdd){
-    $query = $bdd->prepare("SELECT * FROM `user` WHERE `username` = '$username' ");
-    $query->execute();
+    $query = $bdd->prepare("SELECT * FROM `user` WHERE `username` = ?");
+    $query->execute(array(
+      $username));
 
     $result = $query->fetch();
 
@@ -118,8 +122,9 @@
   }
 
     function reset_password_mail($email, $bdd){
-    $query = $bdd->prepare("SELECT * FROM `user` WHERE `email` = '$email' ");
-    $query->execute();
+    $query = $bdd->prepare("SELECT * FROM `user` WHERE `email` = ?");
+    $query->execute(array(
+      $email));
     $result = $query->fetch();
 
     if (empty(result))
@@ -147,8 +152,9 @@
   }
 
   function confirmation($username, $token, $bdd){
-    $query = $bdd->prepare("SELECT * FROM `user` WHERE `username` = '$username' ");
-    $query->execute();
+    $query = $bdd->prepare("SELECT * FROM `user` WHERE `username` = ?");
+    $query->execute(array(
+      $username));
 
     $result = $query->fetch();
     if (empty($result))
@@ -167,8 +173,9 @@
   }
 
   function confirmed($username, $bdd){
-    $query = $bdd->prepare("SELECT * FROM `user` WHERE `username` = '$username' ");
-    $query->execute();
+    $query = $bdd->prepare("SELECT * FROM `user` WHERE `username` = ?");
+    $query->execute(array(
+      $username));
     $result = $query->fetch();
     if (empty($result))
       return(false);

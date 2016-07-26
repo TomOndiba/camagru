@@ -13,8 +13,9 @@
     if (password_check($password))
     {
       $password = password_hash($password, PASSWORD_DEFAULT);
-      $query = $bdd->prepare("UPDATE user SET password='$password' WHERE `username` = '$username'");
-      $query->execute();
+      $query = $bdd->prepare("UPDATE user SET password=? WHERE `username` = '$username'");
+      $query->execute(array(
+        $password));
       header("location: camagru.php");
     }
     else

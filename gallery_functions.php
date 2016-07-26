@@ -1,11 +1,12 @@
 <?php
   
   function get_pictures_paths($page, $bdd){
-    if ($page != 0)
-      $page -= 1;
-    elseif ($page < 0) {
+    $page = intval($page);
+
+    if ($page < 0)
       $page = 0;
-    }
+    elseif ($page != 0)
+      $page -= 1;
 
     $first_image = 9 * $page;
     $query_string = "SELECT `uid`, `user_id` FROM `picture` ORDER BY `id` DESC LIMIT ".$first_image." ,9";
@@ -36,8 +37,9 @@
   }
 
   function list_likes($img_uid, $bdd){
-    $query = $bdd->prepare("SELECT * FROM `picture` WHERE `uid` = '$img_uid' ");
-    $query->execute();
+    $query = $bdd->prepare("SELECT * FROM `picture` WHERE `uid` = ?");
+    $query->execute(array(
+      $img_uid));
 
     $result = $query->fetch();
 
@@ -55,8 +57,9 @@
   }
 
   function get_comments($img_uid, $bdd){
-    $query = $bdd->prepare("SELECT * FROM `comment` WHERE `picture_uid` = '$img_uid' ");
-    $query->execute();
+    $query = $bdd->prepare("SELECT * FROM `comment` WHERE `picture_uid` = ?");
+    $query->execute(array(
+      $img_uid));
 
     $result = $query->fetchAll();
 

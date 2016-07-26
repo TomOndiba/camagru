@@ -13,8 +13,10 @@
     $username = parse_input($_POST["username"]);
     $token = md5(microtime(TRUE)*100000);
     
-    $query = $bdd->prepare("SELECT COUNT('id') FROM `user` WHERE `email` = '$email'");
-    $query->execute();
+    $query = $bdd->prepare("SELECT COUNT('id') FROM `user` WHERE `email` = ?");
+    $query->execute(array(
+      $email));
+
     $result = $query->fetchColumn();
 
     if ($result)
@@ -23,6 +25,19 @@
       $_SESSION['error'] = "email already taken";
       return;
     }
+
+    $query = $bdd->prepare("SELECT COUNT('id') FROM `user` WHERE `username` = ?");
+    $query->execute(array(
+      $username));
+
+    $result = $query->fetchColumn();
+
+    if ($result)
+    {
+      header('location: create.php');
+      $_SESSION['error'] = "username already taken";
+      return;
+    }    
 
     $req = $bdd->prepare('INSERT INTO user(email, password, username, token) VALUES(:email, :password, :username, :token)');
 
@@ -57,12 +72,14 @@
     <main>
       <div class="presentation-text">
         <p class="titles">Sign Up</p>
+        <p>Passwords needs at least one capital letter and be longer than 8 characters</p>
         <form method="post" name="signup">
           <p>Email:<input type="text" name="email"></p>
           <p>Username:<input type="text" name="username"></p>
           <p>Password:<input type="password" name="password"></p>
           <input type="submit" name="signup" value="Create User">
-        </form>
+        </form><br>
+        <p>Or</p>
         <a href="./">Sign In</a>
       </div>
     </main>
