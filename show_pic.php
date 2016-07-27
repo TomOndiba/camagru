@@ -12,6 +12,8 @@
   $likes = get_likes($img_uid, $bdd);
   $comments = get_comments($img_uid, $bdd);
   $user_id = return_id($_SESSION['username'], $bdd);
+  $host = $_SERVER[HTTP_HOST];
+  $share_link = "https://github.com/Kokiwi/camagru";
 
     if (filter_has_var( INPUT_POST,  'comment' ))
   {
@@ -80,10 +82,18 @@
           Comment:<br>
           <textarea name="commentfield" rows=3; cols=25></textarea>
         </p>
-        <input type="submit" name="comment"  value="Poster">
+        <input type="submit" name="comment"  value="Post">
       </form>
     </div>
   <?php } ?>
+
+  <div class="gallery-uniq share">
+  <p>Share</p>
+    <a onClick="window.open('http://www.facebook.com/sharer.php?s=100&amp;p[title]=<?php echo urlencode('camagru'); ?>&amp;p[url]=<?php echo urlencode($share_link); ?>&amp;', 'sharer', 'toolbar=0,status=0,width=548,height=325');" target="_parent" href="javascript: void(0)">
+      <img src="assets/images/facebook.png" width="30">
+    </a>
+    <a target="_blank" title="Cliquez pour partager sur Tweeter" href="http://twitter.com/home?status=Hey ! I am using this awesome camagru ! <?php echo $share_link?>" class="share-twitter share-icon" via="wpchannel" rel="nofollow"><img src="assets/images/twitter.png" width="30"></a>
+  </div>
 
   </main>
   <?php include 'layouts/footer.html' ?> 

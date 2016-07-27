@@ -222,6 +222,13 @@ p {
   margin-right: 25%;
 }
 
+.share{
+  text-align: center;
+  border-top: 1px solid black;
+  margin-top: 10px;
+  padding-top: 10px;
+}
+
 #img-uniq{
   width: 100%;
 }

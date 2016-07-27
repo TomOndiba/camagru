@@ -22,6 +22,10 @@
       $_SESSION['error'] = "At least one maj in password";
       return false;
     }
+    elseif(!preg_match("/\d/", $password)){
+      $_SESSION['error'] = "At least one digit";
+      return false;
+    }    
     return true;
   }
 
@@ -103,14 +107,14 @@
   }
 
   function confirmation_mail($email, $username, $token){
-    $url = $_SERVER[HTTP_HOST].explode('/', $_SERVER[REQUEST_URI])[0].'/';
+    $folder = '/'.explode('/',$_SERVER['REQUEST_URI'])[1].'/';
     $subject = "Activate your account" ;
     $entete = "From: inscription@camagru.com" ;
      
     $message = 'Welcome to Camagru,
      
     To activate your account, please click the link below  
-    http://'.$_SERVER[HTTP_HOST].'/camagru/activate.php?username='.urlencode($username).'&token='.urlencode($token).'
+    http://'.$_SERVER[HTTP_HOST].$folder.'activate.php?username='.urlencode($username).'&token='.urlencode($token).'
      
      
     ---------------
@@ -133,14 +137,14 @@
     $username = $result['username'];
     $token = $result['token'];
 
-    $url = $_SERVER[HTTP_HOST].explode('/', $_SERVER[REQUEST_URI])[0].'/';
+    $folder = '/'.explode('/',$_SERVER['REQUEST_URI'])[1].'/';
     $subject = "Password Forgotten" ;
     $entete = "From: password@camagru.com" ;
      
     $message = 'So your forgot your password,
      
     To get a new one, please click the link below  
-    http://'.$_SERVER[HTTP_HOST].'/camagru/password.php?username='.urlencode($username).'&token='.urlencode($token).'
+    http://'.$_SERVER[HTTP_HOST].$folder.'password.php?username='.urlencode($username).'&token='.urlencode($token).'
      
      
     ---------------

@@ -78,7 +78,7 @@
     <main>
       <div class="presentation-text">
         <p class="titles">Sign Up</p>
-        <p>Passwords needs at least one capital letter and be longer than 8 characters</p>
+        <p>Passwords needs at least one capital letter, one digit and be longer than 8 characters</p>
         <form method="post" name="signup">
           <p>Email:<input type="text" name="email"></p>
           <p>Username:<input type="text" name="username"></p>

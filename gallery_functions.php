@@ -67,7 +67,7 @@
   }
 
   function send_comment_email($img_url, $email){
-    $url = $_SERVER[HTTP_HOST].explode('/', $_SERVER[REQUEST_URI])[0].'/';
+    $folder = '/'.explode('/',$_SERVER['REQUEST_URI'])[1].'/';
     $subject = "New comment has arrived" ;
     $entete = "From: noreply@camagru.com" ;
      
@@ -75,7 +75,7 @@
      
     A new comment has arrived on your picture !
     Click the link below to see it:  
-    http://'.$_SERVER[HTTP_HOST].'/camagru/show_pic.php?path='.urlencode($img_url).'
+    http://'.$_SERVER[HTTP_HOST].$folder.'show_pic.php?path='.urlencode($img_url).'
      
      
     ---------------
