@@ -49,7 +49,7 @@
       $_SESSION['error'] = "Enter valid email";
     }
     elseif (preg_match("/[<;()\'\"&\\/,]/", $username)) {
-      $_SESSION['error'] = "Don't use special charactes";
+      $_SESSION['error'] = "Don't use special characters";
     }
     elseif (strlen($username) < 3) {
       $_SESSION['error'] = "Username too short (3 characters min)";
